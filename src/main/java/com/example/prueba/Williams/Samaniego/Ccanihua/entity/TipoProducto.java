@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,8 +19,11 @@ public class TipoProducto implements Serializable {
     private Long id;
     private String nombre;
 
-    @OneToMany(targetEntity=Producto.class,cascade=CascadeType.ALL,fetch = FetchType.EAGER, mappedBy="tipoProducto")
-    Set<Producto> producto = new HashSet<Producto>();
+    /*@OneToMany(targetEntity=Producto.class,cascade=CascadeType.ALL,fetch = FetchType.EAGER, mappedBy="tipoProducto")
+    Set<Producto> producto = new HashSet<Producto>();*/
+
+    @OneToMany(mappedBy = "tipoProducto", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Producto> producto;
 
     public TipoProducto(Long id) {
         super();

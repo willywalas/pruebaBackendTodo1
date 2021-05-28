@@ -16,7 +16,7 @@ public interface ProductoRepository extends JpaRepository<Producto,Long> {
     Optional<Producto> findById(Long id);
 
     @Transactional(readOnly = true)
-    Optional<Producto> findByTipoProducto(Long id);
+    List<Producto> findByTipoProductoId(Long id);
 
     @Override
     @Transactional

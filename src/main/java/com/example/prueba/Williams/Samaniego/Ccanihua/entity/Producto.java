@@ -22,7 +22,8 @@ public class Producto implements Serializable {
     private int stock;
 
     @JsonProperty("tipoProducto")
-    @ManyToOne(targetEntity=TipoProducto.class)
+    @ManyToOne()
+    @JoinColumn(name = "tipo_producto_id")
     private TipoProducto tipoProducto;
 
     public Long getId() {

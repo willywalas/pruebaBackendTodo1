@@ -50,9 +50,9 @@ public class ProductoServiceImpl implements ProductoService {
 
     @Override
     public ResponseEntity<?> getProductoByTipoProducto(Long personaId) {
-        Optional<Producto> oProducto=productoRepository.findByTipoProducto(personaId);
+        List<Producto> oProducto=productoRepository.findByTipoProductoId(personaId);
 
-        if(!oProducto.isPresent()){
+        if(oProducto.isEmpty()){
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(oProducto);
