@@ -56,7 +56,7 @@ public class PersonaServiceImpl implements PersonaService {
 
         persona.get().setContrasenia(personaDetails.getContrasenia());
         persona.get().setNombre(personaDetails.getNombre());
-        persona.get().setContrasenia(personaDetails.getContrasenia());
+        persona.get().setTipoUsuario(personaDetails.getTipoUsuario());
         persona.get().setUsuario(personaDetails.getUsuario());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(personaRepository.save(persona.get()));

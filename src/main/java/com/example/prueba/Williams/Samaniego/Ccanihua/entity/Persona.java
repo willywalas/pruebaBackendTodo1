@@ -14,7 +14,7 @@ public class Persona implements Serializable {
     private Long id;
     private String nombre;
     private String usuario;
-    private int tipoUsuario;
+    private String tipoUsuario;
     private String contrasenia;
 
     public Long getId() {
@@ -41,11 +41,11 @@ public class Persona implements Serializable {
         this.usuario = usuario;
     }
 
-    public int getTipoUsuario() {
+    public String getTipoUsuario() {
         return tipoUsuario;
     }
 
-    public void setTipoUsuario(int tipoUsuario) {
+    public void setTipoUsuario(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
 
