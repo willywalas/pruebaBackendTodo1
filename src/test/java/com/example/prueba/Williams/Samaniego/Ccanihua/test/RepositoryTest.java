@@ -66,7 +66,7 @@ public class RepositoryTest {
         objTipoProducto.setId(1L);
 
         objProducto.setId(1L);
-        objProducto.setImagen("imagen");
+        //objProducto.setImagen("imagen");
         objProducto.setTipoProducto(objTipoProducto);
         objProducto.setStock(3);
         objProducto.setNombre("nombre");

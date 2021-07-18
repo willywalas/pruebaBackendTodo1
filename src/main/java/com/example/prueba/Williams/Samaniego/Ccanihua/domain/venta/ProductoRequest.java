@@ -1,40 +1,22 @@
-package com.example.prueba.Williams.Samaniego.Ccanihua.entity;
+package com.example.prueba.Williams.Samaniego.Ccanihua.domain.venta;
 
+import com.example.prueba.Williams.Samaniego.Ccanihua.entity.TipoProducto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-@Entity
-@Table(name = "Producto")
-public class Producto implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class ProductoRequest {
     private String nombre;
     private String descripcion;
     private Double precio;
-    private String imagen;
+    private MultipartFile imagen;
     //@Lob
     //private byte[] imagen;
     private int stock;
 
-    @JsonProperty("tipoProducto")
-    @ManyToOne()
-    @JoinColumn(name = "tipo_producto_id")
-    private TipoProducto tipoProducto;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private int tipoProducto;
 
     public String getNombre() {
         return nombre;
@@ -60,11 +42,11 @@ public class Producto implements Serializable {
         this.precio = precio;
     }
 
-    public String getImagen() {
+    public MultipartFile getImagen() {
         return imagen;
     }
 
-    public void setImagen(String imagen) {
+    public void setImagen(MultipartFile imagen) {
         this.imagen = imagen;
     }
 
@@ -76,11 +58,11 @@ public class Producto implements Serializable {
         this.stock = stock;
     }
 
-    public TipoProducto getTipoProducto() {
+    public int getTipoProducto() {
         return tipoProducto;
     }
 
-    public void setTipoProducto(TipoProducto tipoProducto) {
+    public void setTipoProducto(int tipoProducto) {
         this.tipoProducto = tipoProducto;
     }
 }
